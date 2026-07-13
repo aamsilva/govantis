@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /$
+Allow: /privacy$
+Allow: /404.html$
+Disallow: /
+Sitemap: https://govantis.pt/sitemap.xml
