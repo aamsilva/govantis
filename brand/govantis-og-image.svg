@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#020617"/>
+  <rect y="280" width="1200" height="70" fill="rgba(45,212,191,0.08)"/>
+  <text x="100" y="240" font-family="system-ui" font-size="72" font-weight="800" fill="#f8fafc">Govantis</text>
+  <text x="100" y="320" font-family="system-ui" font-size="36" font-weight="500" fill="#94a3b8">AI-Native Platform Strategy &amp; Execution</text>
+  <text x="100" y="380" font-family="system-ui" font-size="24" fill="#2dd4bf">for Telecom Operators</text>
+  <rect x="100" y="420" width="80" height="4" rx="2" fill="#2dd4bf"/>
+  <text x="100" y="470" font-family="system-ui" font-size="20" fill="#64748b">Strategy · AI Products · Governance</text>
+  <circle cx="1100" cy="180" r="120" fill="none" stroke="rgba(45,212,191,0.15)" stroke-width="2"/>
+  <circle cx="1100" cy="180" r="60" fill="none" stroke="rgba(59,130,246,0.2)" stroke-width="2"/>
+  <rect x="1060" y="140" width="80" height="80" fill="none" stroke="#2dd4bf" stroke-width="3" transform="rotate(45 1100 180)"/>
+</svg>
