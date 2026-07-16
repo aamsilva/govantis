@@ -216,7 +216,17 @@
         .nav a:hover{color:var(--accent)}
         .nav a.cta-link{padding:5px 18px;border:1px solid var(--accent);border-radius:100px;color:var(--accent);line-height:1}
         .nav a.cta-link:hover{background:var(--accent);color:#fff}
-        @media(max-width:768px){.nav{display:none}}
+        @media(max-width:768px){
+            .nav{position:fixed;top:0;right:-100%;width:75%;max-width:320px;height:100vh;flex-direction:column;padding:80px 32px 32px;gap:0;background:rgba(2,6,23,.97);backdrop-filter:blur(24px);transition:right .3s ease;z-index:999;align-items:stretch}
+            .nav.open{right:0}
+            .nav a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.85rem;display:block}
+            .nav a.cta-link{border:1px solid var(--accent);border-radius:100px;margin-top:16px;text-align:center;padding:10px 0}
+            .hamburger{display:flex!important}
+            .hamburger.open .bar:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+            .hamburger.open .bar:nth-child(2){opacity:0}
+            .hamburger.open .bar:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+        }
+        @media(min-width:769px){.hamburger{display:none!important}}
 
         /* --- Hero --- */
         .hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative}
@@ -327,13 +337,18 @@
             <div class="logo-mark"><div class="outer"></div><div class="inner"></div></div>
             <span class="logo-text">GOVANTIS</span>
         </a>
-        <nav class="nav">
+        <nav class="nav" id="nav">
             <a href="#who">Who We Are</a>
             <a href="#founders">Founders</a>
             <a href="#what">What We Do</a>
             <a href="#insights">Insights</a>
             <a href="#contact" class="cta-link">Contact</a>
         </nav>
+        <button class="hamburger" id="hamburger" aria-label="Menu" style="display:none">
+            <span class="bar" style="display:block;width:22px;height:2px;background:var(--text);margin:5px 0;border-radius:1px;transition:transform .3s,opacity .3s"></span>
+            <span class="bar" style="display:block;width:22px;height:2px;background:var(--text);margin:5px 0;border-radius:1px;transition:transform .3s,opacity .3s"></span>
+            <span class="bar" style="display:block;width:22px;height:2px;background:var(--text);margin:5px 0;border-radius:1px;transition:transform .3s,opacity .3s"></span>
+        </button>
     </div>
 </header>
 <main id="content">
@@ -530,6 +545,9 @@
 <script>
 const log=document.getElementById('log');let ls=0;
 window.addEventListener('scroll',()=>{const s=window.scrollY;if(s>ls&&s>80)log.querySelector('.logo-mark').classList.add('anim');else if(s<ls)log.querySelector('.logo-mark').classList.remove('anim');ls=s},{passive:true});
+const ham=document.getElementById('hamburger'),nav=document.getElementById('nav');
+ham&&ham.addEventListener('click',()=>{ham.classList.toggle('open');nav.classList.toggle('open')});
+nav&&nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');nav.classList.remove('open')}));
 const ob=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');ob.unobserve(x.target)}})},{rootMargin:'0px 0px -40px 0px',threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));
 const c=document.getElementById('canvas'),ctx=c.getContext('2d');let w,h,pts=[],D=150;
